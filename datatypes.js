@@ -1,15 +1,25 @@
-let a = 100;
-let b = "Hello world!";
-let c = true;
-let d = 1234567890123456789012345678901234567890n;
-let e = null;
-let f;
+// data types
+console.log("--- data types ---");
 
+const someArray = [1,2,3];
+
+console.log(typeof(100));
+console.log(typeof("Hello world!"));
+console.log(typeof(true));
+console.log(typeof(1234567890123456789012345678901234567890n));
 console.log(typeof(a));
-console.log(typeof(b));
-console.log(typeof(c));
-console.log(typeof(d));
-console.log(typeof(e));
-console.log(typeof(f));
-console.log(typeof(a + b + c + d + e + f));
-console.log(typeof(b + d));
+console.log(typeof(null));
+console.log(typeof(Symbol("id")));
+console.log(typeof(someArray));
+
+
+// Variables
+console.log("--- variables ---");
+
+let admin;
+let name;
+
+name = "John";
+admin = name;
+
+console.log(admin);
