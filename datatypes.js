@@ -23,3 +23,24 @@ name = "John";
 admin = name;
 
 console.log(admin);
+
+// Type Conversions
+console.log("--- type conversions ---");
+
+let value = null;
+console.log(value + " it's " + typeof value);
+
+value = String(value);
+console.log(value + " it's " + typeof value);
+
+let number1 = "10";
+let number2 = "2";
+
+let result = number1 / number2;
+console.log(number1 + " it's " + typeof number1);
+console.log(number2 + " it's " + typeof number2);
+console.log(result + " it's " + typeof result);
+
+console.log(Number("  10 "));
+console.log(Number(true));
+console.log(Boolean("0"));
