@@ -34,13 +34,18 @@ value = String(value);
 console.log(value + " it's " + typeof value);
 
 let number1 = "10";
-let number2 = "2";
+const number2 = 2;
 
 let result = number1 / number2;
 console.log(number1 + " it's " + typeof number1);
 console.log(number2 + " it's " + typeof number2);
 console.log(result + " it's " + typeof result);
 
-console.log(Number("  10 "));
+let sum = number2 + ++number1;
+console.log(number1 + " it's " + typeof number1);
+console.log(number2 + " it's " + typeof number2);
+console.log(sum + " it's " + typeof sum);
+
+console.log(Number("  10m "));
 console.log(Number(true));
 console.log(Boolean("0"));
