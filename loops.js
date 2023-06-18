@@ -43,3 +43,22 @@ while (i < 6) {
     console.log( `number ${i}!` );
     i++;
 };
+
+function showMyNumber(myNumber){
+    switch(myNumber){
+        case 0:
+            console.log("This is zero!");
+            break;
+        case 1:
+            console.log("This is one :)");
+            break;
+        case 2:
+        case 3:
+            console.log("It's could be a two or three ;)");
+            break;
+        default:
+            console.log("Well, I don't know...");
+    }
+};
+
+showMyNumber(2);
