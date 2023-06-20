@@ -37,4 +37,16 @@ function drawTriangleAgain(newSize){
         i++;
     };
 };
-drawTriangleAgain(3);
+
+function upperString(str){
+    let newStr = "";
+    for(let i = str.length-1; i >= 0; i--){
+        if( str[i] != str[i].toUpperCase()){
+            newStr = str[i].toUpperCase() + newStr;
+        } else {
+            newStr = str[i].toLowerCase() + newStr;
+        };
+    };
+    return console.log(newStr);
+};
+upperString("hello MY friends!");
