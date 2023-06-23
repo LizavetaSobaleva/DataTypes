@@ -76,7 +76,7 @@ function bmi(weight, height) {
     if (bmi > 30) return "Obese";
 };
 console.log(bmi(50,1.70));
-console.log(bmi(70,1.50));
+console.log(bmi(77,1.75));
 
 //Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. 
 //Return the resulting string.
@@ -101,12 +101,80 @@ function squareSum(numbers){
 };
 console.log(squareSum([1,2,2]));
 
-
 var countSheep = function (num){
-    let sheep = "";
-    for(i = 1; i <= num; i++){
-        if (i > 0) sheep = i +  " sheep...";
-        console.log(sheep);
+    const result = [];
+    if (num === 0) {
+       return ''; 
     };
+    for(i = 1; i <= num; i++){
+        result.push(i + " sheep...");
+    };
+    return result.join("");
+}
+console.log(countSheep(3));
+
+//You need to double the integer and return it.
+function doubleInteger(i) {
+    return i*2;
 };
-countSheep(3);
+//or
+const doubleInteger2 = i => i*2;
+
+/*Complete the function so that it finds the average of the three scores passed to it 
+and returns the letter value associated with that grade.*/
+function getGrade (s1, s2, s3) {
+    let score = (s1+s2+s3)/3;
+    if (score <= 100 && score >= 90) return "A";
+    if (score < 90 && score >= 80) return "B";
+    if (score < 80 && score >= 70) return "C";
+    if (score < 70 && score >= 60) return "D";
+    if (score < 60 && score >= 0) return "F";
+  };
+  console.log(getGrade(20,20,20));
+
+  /*Your task is to make two functions that receive a list of integers as input, 
+  and return the largest and lowest number in that list, respectively.*/
+var min = function(list){
+    let min = list[0];
+    for(let i = 1; i < list.length; i++){
+        if (list[i] < min) { min = list[i]};
+    };
+    return min;
+};
+
+var max = function(list){
+    let max = list[0];
+    for(let i = 1; i < list.length; i++){
+        if (list[i] > max) { max = list[i]};
+    };
+    return max;
+};
+
+console.log(min([49,59,-1,68,-20]));
+console.log(max([49,59,-1,68,-20]));
+
+/*Write a function that accepts an integer n and a string s as parameters, 
+and returns a string of s repeated exactly n times.*/
+function repeatStr (n, s) {
+    let result = "";
+    for(let i = 1; i <= n; i++){
+        result += s;
+    };
+    return result;
+};
+const repeatStr2 = (n, s) => s.repeat(n);
+
+console.log(repeatStr(3,'hello'));
+console.log(repeatStr2(4,'amore'));
+
+
+function hero(bullets, dragons){
+    let needBullets = dragons*2;
+    if (bullets >= needBullets) { return true }
+    else return false;
+};
+function hero2(bullets, dragons){
+    return bullets >= dragons * 2
+  }
+console.log(hero(10,4));
+console.log(hero2(10,4));
