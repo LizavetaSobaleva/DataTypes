@@ -132,8 +132,8 @@ function getGrade (s1, s2, s3) {
   };
   console.log(getGrade(20,20,20));
 
-  /*Your task is to make two functions that receive a list of integers as input, 
-  and return the largest and lowest number in that list, respectively.*/
+/*Your task is to make two functions that receive a list of integers as input, 
+and return the largest and lowest number in that list, respectively.*/
 var min = function(list){
     let min = list[0];
     for(let i = 1; i < list.length; i++){
@@ -173,8 +173,46 @@ function hero(bullets, dragons){
     if (bullets >= needBullets) { return true }
     else return false;
 };
-function hero2(bullets, dragons){
+/*function hero2(bullets, dragons){
     return bullets >= dragons * 2
-  }
+  }*/
+const hero2 = (bull, drag) => bull >= drag*2;
+
 console.log(hero(10,4));
 console.log(hero2(10,4));
+
+//Return the number (count) of vowels in the given string.
+//We will consider a, e, i, o, u as vowels for this Kata (but not y).
+function getCount(str) {
+    let sum = 0;
+    for(let i = 0; i < str.length; i++){
+        let letter = str[i];
+        switch (letter){
+            case 'a':
+            case 'e':
+            case 'i':
+            case 'o':
+            case 'u':
+                sum++;
+                break;
+        };
+    };
+    return sum;
+};
+console.log(getCount('abacdesxsaoijn'));
+
+//accum("abcd") -> "A-Bb-Ccc-Dddd"
+function accum(s) {
+    let result = [];
+    for(let i = 0; i < s.length; i++){
+        let letter = s[i];
+        let num = i+1;
+        result.push(letter.repeat(num));
+        result[i] = result[i].charAt(0).toUpperCase() + result[i].substring(1).toLowerCase();
+    };
+    return result.join("-");
+};
+function accum2(s) {
+	return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+}
+console.log(accum("heLLo"));
