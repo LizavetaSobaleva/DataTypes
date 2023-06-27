@@ -214,5 +214,23 @@ function accum(s) {
 };
 function accum2(s) {
 	return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
-}
+};
 console.log(accum("heLLo"));
+
+//Array methods
+function newReverseString(str){
+    return Array.from(str).reverse().join("");
+};
+
+const reverseStr = str => Array.from(str).reverse().join("");
+const reverseStr2 = str => str.split("").reverse().join("");
+
+console.log(newReverseString("hello array methods!"));
+console.log(reverseStr2("Did it again"));
+
+//You get an array of numbers, return the sum of all of the positives ones.
+function positiveSum(arr) {
+    return arr.filter(i => i > 0).length ? arr.reduce((a,b) => a + b) : 0;
+};
+
+console.log(positiveSum([-10, -20,30, 40]));
