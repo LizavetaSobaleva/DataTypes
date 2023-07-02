@@ -234,3 +234,40 @@ function positiveSum(arr) {
 };
 
 console.log(positiveSum([-10, -20,30, 40]));
+
+//Make a program that filters a list of strings and returns a list with only your friends name in it.
+//If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+function friend(friends){
+    return friends.filter(name => name.length === 4);
+};
+
+console.log(friend(["Ryan", "Kieran", "Mark"]));
+
+//This kata is about multiplying a given number by eight if it is an even number and by nine otherwise.
+function simpleMultiplication(number) {
+    return number % 2 === 0 ? number * 8 : number * 9;
+};
+
+console.log(simpleMultiplication(1));
+
+//Write a function to split a string and convert it into an array of words.
+function stringToArray(string){
+    return string.split(" ");
+};
+
+console.log(stringToArray("I learn JavaScript"));
+
+//Given an array of integers, return a new array with each value doubled.
+function maps(x){
+    return x.map(i => i * 2);
+};
+
+console.log(maps([1,2,3]));
+
+//Create a function that takes an integer as an argument and returns 
+//"Even" for even numbers or "Odd" for odd numbers.
+function evenOrOdd(number) {
+  return number % 2 === 0 ? 'Even' : 'Odd';
+};
+
+console.log(evenOrOdd(4));
