@@ -233,7 +233,7 @@ function positiveSum(arr) {
     return arr.filter(i => i > 0).length ? arr.reduce((a,b) => a + b) : 0;
 };
 
-console.log(positiveSum([-10, -20,30, 40]));
+console.log(positiveSum([-10, -20, 30, 40]));
 
 //Make a program that filters a list of strings and returns a list with only your friends name in it.
 //If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
@@ -271,3 +271,98 @@ function evenOrOdd(number) {
 };
 
 console.log(evenOrOdd(4));
+
+//Check to see if a string has the same amount of 'x's and 'o's. 
+//The method must return a boolean and be case insensitive. The string can contain any char.
+function XO(str) {
+    let countX = 0;
+    let countO = 0;
+    str.toLowerCase().split('').forEach(function(i){
+        if (i === 'x') countX++;
+        if (i === 'o') countO++;
+    });
+    return countX === countO;
+};
+/*function XO(str) {
+    return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
+}*/
+console.log(XO("Xxoo"));
+
+//Your task is to write a function which returns the time since midnight in milliseconds.
+function past(h, m, s){
+    return h*3600000 + m*60000 + s*1000;
+};
+console.log(past(0,1,1));
+
+//Implement a function that accepts 3 integer values a, b, c. The function should return true 
+//if a triangle can be built with the sides of given length and false in any other case.
+function isTriangle(a,b,c) {
+   return a < b+c && b < a+c && c < a+b;
+};
+console.log(isTriangle(2,7,2));
+
+//Your task is to create a function that does four basic mathematical operations.
+function basicOp(operation, value1, value2){
+    if (operation === '+') return value1 + value2;
+    if (operation === '-') return value1 - value2;
+    if (operation === '*') return value1 * value2;
+    if (operation === '/') return value1 / value2;
+};
+function basicOp2(o, a, b) {
+  return eval(a+o+b);
+}
+console.log(basicOp('-',10,2));
+
+//Given a year, return the century it is in.
+function century(year) {
+    return Math.ceil(year/100);
+};
+
+console.log(century(2023));
+
+//Sum all the numbers of a given array ( cq. list ), 
+//except the highest and the lowest element ( by value, not by index! ).
+function sumArray(array) {
+    if(array != null && array.length > 2){
+    return array.sort((a,b) => a - b).slice(1, -1).reduce((a,b) => a + b, 0);
+    } return 0;
+};
+//sumArray = a => a ? a.sort((x, y) => x - y).slice(1, -1).reduce((s, e) => s + e, 0) : 0
+console.log(sumArray([ 6, 2, 1, 8, 10 ]));
+
+//Very simple, given an integer or a floating-point number, find its opposite.
+function opposite(number) {
+    return -number;
+};
+console.log(opposite(10));
+
+//Return an array, where the first element is the count of positives numbers 
+//and the second element is sum of negative numbers. 0 is neither positive nor negative.
+function countPositivesSumNegatives(input) {
+    let countOfPos = 0;
+    if(input != null && input.length > 0){
+        input.forEach(function(x){
+            if(x > 0) countOfPos++;
+        });
+        let sumOfNeg = input.filter(x => x < 0).reduce((a, b) => a + b, 0);
+        return [countOfPos, sumOfNeg];
+    };
+    return [];
+};
+
+console.log(countPositivesSumNegatives([-20]));
+
+function digitize(n) {
+    return n.toString().split('').reverse().map(Number)
+};
+console.log(digitize(12345));
+
+/*Given an array of integers, remove the smallest value. Do not mutate the original array/list. 
+If there are multiple elements with the same value, remove the one with a lower index. 
+If you get an empty array/list, return an empty array/list.
+Don't change the order of the elements that are left.*/
+function removeSmallest(numbers) {
+    const index = numbers.indexOf(Math.min.apply(null, numbers))
+    return numbers.slice(0, index).concat(numbers.slice(index+1))
+}
+console.log(removeSmallest([5,3,1,2,4,1,2,1]));
