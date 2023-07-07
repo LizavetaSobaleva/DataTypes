@@ -366,3 +366,76 @@ function removeSmallest(numbers) {
     return numbers.slice(0, index).concat(numbers.slice(index+1))
 }
 console.log(removeSmallest([5,3,1,2,4,1,2,1]));
+
+
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+var number = function(array){
+    return array.map((c, i) => ((i+1) + ': ' + c));
+}
+console.log(number(["a", "b", "c"] ))
+
+//In this kata you will create a function that takes a list of non-negative integers
+//and strings and returns a new list with the strings filtered out.
+function filter_list(l) {
+    return l.filter(i => typeof i === "number")
+}
+console.log(filter_list([1,'a','b',0,15]))
+
+//If your name starts with the letter "R" or lower case "r", you are playing banjo!
+function areYouPlayingBanjo(name) {
+    let playing = name.split('').slice(0,1).filter(i => "Rr".includes(i)).length ? true : false
+    return playing === true ? name + ' plays banjo' : name + ' does not play banjo'
+    // return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo";
+}
+console.log(areYouPlayingBanjo("Jerry"));
+
+//Take an array and remove every second element from the array. 
+//Always keep the first element and start removing with the next element.
+function removeEveryOther(arr){
+    return arr.filter((e,i) => !(i % 2))
+}
+console.log(removeEveryOther(["Keep", "Remove", "Keep", "Remove", "Keep"]))
+
+//Your task is to write a function that takes a string and return a new string with all vowels removed.
+function disemvowel(str) {
+    return str.split('').filter(i => !("aeiouAEIOU".includes(i))).join('')
+    //return str.replace(/[aeiou]/gi, '');
+}
+console.log(disemvowel("This website is for losers LOL!" ))
+
+//Consider an array/list of sheep where some sheep may be missing from their place. 
+//We need a function that counts the number of sheep present in the array (true means present).
+function countSheeps(arrayOfSheep) {
+    return arrayOfSheep.filter(i => i === true).length
+    //return arrayOfSheeps.filter(Boolean).length
+}
+console.log(countSheeps([true,  true,  true,  false]))
+
+// You were camping with your friends far away from home, but when it's time to go back, 
+// you realize that your fuel is running out and the nearest pump is 50 miles away! 
+// You know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left.
+// Considering these factors, write a function that tells you if it is possible to get to the pump or not.
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+    return distanceToPump <= mpg*fuelLeft
+};
+console.log(zeroFuel(50, 25, 2))
+
+//Write a function findNeedle() that takes an array full of junk but containing one "needle"
+function findNeedle(haystack) {
+    return "found the needle at position " + haystack.indexOf('needle')
+  }
+console.log(findNeedle(["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]))
+
+//Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+function removeExclamationMarks(s) {
+    return s.replace(/!/gi, '')
+}
+console.log(removeExclamationMarks('Hello world!!!'))
+
+//Build a function that returns an array of integers from n to 1 where n>0.
+const reverseSeq = n => {
+    return Array.from(Array(n+1).keys()).filter(i => i > 0).reverse()
+    //return Array(n).fill(0).map((e, i) => n - i );
+};
+console.log(reverseSeq(5))
