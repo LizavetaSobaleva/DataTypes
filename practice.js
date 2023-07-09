@@ -437,5 +437,63 @@ console.log(removeExclamationMarks('Hello world!!!'))
 const reverseSeq = n => {
     return Array.from(Array(n+1).keys()).filter(i => i > 0).reverse()
     //return Array(n).fill(0).map((e, i) => n - i );
-};
+}
 console.log(reverseSeq(5))
+
+//Your goal is to create a function that removes the first and last characters of a string. 
+//You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
+function removeChar(str){
+    return str.slice(1, -1);
+}
+console.log(removeChar('Hello'))
+
+//Simple, given a string of words, return the length of the shortest word(s).
+function findShort(s){
+    return s.split(' ').sort((a,b) => a.length - b.length)[0].length
+    //return Math.min.apply(null, s.split(' ').map(w => w.length));
+}
+console.log(findShort("Let's travel abroad shall we"))
+
+//You get given the time in hours and you need to return the number of litres Nathan will drink, 
+//rounded to the smallest value.
+function litres(time) {
+  return Math.floor(time*0.5)
+}
+console.log(litres(12.3))
+
+//Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+function greet (name, owner) {
+    return name === owner ? "Hello boss" : "Hello guest"
+}
+console.log(greet('Daniel', 'Daniel'))
+
+//People can "like" blog posts, pictures or other items. 
+//We want to create the text that should be displayed next to such an item.
+//Implement the function which takes an array containing the names of people that like an item. 
+function likes(names) {
+    let people = names.length
+    let name
+    switch(names.length){
+        case 0: 
+            name = 'no one'
+            break
+        case 1: 
+            name = names[0]
+            break
+        case 2:
+            name = `${names[0]} and ${names[1]}`
+            break
+        case 3:
+            name = `${names[0]}, ${names[1]} and ${names[2]}`
+            break
+        default:
+            name = `${names[0]}, ${names[1]} and ${(+people-2)} others`
+            break
+    }
+    return name + (people < 2 ? ' likes this' : ' like this')
+}
+console.log(likes([]))
+console.log(likes(['Alex']))
+console.log(likes(['Alex', 'Jacob']))
+console.log(likes(['Alex', 'Jacob', 'Mark']))
+console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']))
