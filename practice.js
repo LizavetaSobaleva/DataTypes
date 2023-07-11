@@ -215,7 +215,7 @@ function accum(s) {
 function accum2(s) {
 	return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
 };
-console.log(accum("heLLo"));
+console.log(accum2("heLLo"));
 
 //Array methods
 function newReverseString(str){
@@ -497,3 +497,22 @@ console.log(likes(['Alex']))
 console.log(likes(['Alex', 'Jacob']))
 console.log(likes(['Alex', 'Jacob', 'Mark']))
 console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']))
+
+function smash (words) {
+    return words.join(' ')
+}
+console.log(smash(['hello', 'world']))
+
+//Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+const doubleChar = str => str.split('').map(c => c.repeat(2)).join('')
+console.log(doubleChar('JavaScript'))
+
+//Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+const boolToWord = bool => bool ? 'Yes' : 'No'
+console.log(boolToWord(false))
+
+//You will be given a number and you will need to return it as a string in Expanded Form.
+function expandedForm(num) {
+    return num.toString().split("").reverse().map((c, i) => c + ('0').repeat(i)).filter(i => i != 0).reverse().join(' + ')
+}
+console.log(expandedForm(704));
