@@ -516,3 +516,43 @@ function expandedForm(num) {
     return num.toString().split("").reverse().map((c, i) => c + ('0').repeat(i)).filter(i => i != 0).reverse().join(' + ')
 }
 console.log(expandedForm(704));
+
+//Mexican Wave
+function wave(str){
+    return str.split('').fill(str.toLowerCase()).map((word, index) => word.split("")
+        .map((l, i) => i === index ? l.toUpperCase() : l).join('')).filter(word => word != word.toLowerCase())
+}
+console.log(wave('two words'))
+
+//Count the number of divisors of a positive integer n.
+function getDivisorsCnt(n){
+    let sum = 0
+    for(i = 1; i <= Math.sqrt(n); i++) n % i === 0 ? n / i === i ? sum++ : sum += 2 : sum
+    return sum
+}
+console.log(getDivisorsCnt(510510))
+
+//Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. 
+//Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+//Write a code that gives out the total amount for different days(d).
+const rentalCarCost = (d) => d < 3 ? d * 40 : d < 7 ? d * 40 - 20 : d * 40 - 50
+console.log(rentalCarCost(7))
+
+//Create a function with two arguments that will return an array of the first n multiples of x.
+//Assume both the given number and the number of times to count will be positive numbers greater than 0.
+function countBy (x, n) {
+    let z = []
+    for(i = 1; z.length < n; i++) {
+        i % x === 0 ? z.push(i) : z
+    }
+    return z
+}
+console.log(countBy(1,10))
+
+//You will be given an array of numbers. You have to sort the odd numbers in ascending order 
+//while leaving the even numbers at their original positions.
+function sortArray(array) {
+    const odd = array.filter((n) => n % 2).sort((a,b) => a - b);
+    return array.map((n) => n % 2 ? odd.shift() : n);
+}
+console.log(sortArray([5, 8, 6, 3, 4] ))
