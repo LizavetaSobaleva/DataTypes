@@ -556,3 +556,42 @@ function sortArray(array) {
     return array.map((n) => n % 2 ? odd.shift() : n);
 }
 console.log(sortArray([5, 8, 6, 3, 4] ))
+
+//Write a function to convert a name into initials.
+//The output should be two capital letters with a dot separating them.
+const abbrevName = (name) => name.split(' ').map((n) => n[0].toUpperCase()).join('.')
+console.log(abbrevName("sam Harris"))
+
+//Complete the solution so that it returns true if the first argument(string) 
+//passed in ends with the 2nd argument (also a string).
+const solution = (str, ending) => str.split('').splice(-ending.length).join('') === ending || ending === ''
+//const solution = (str, ending) => str.endsWith(ending);
+console.log(solution('abdaa', ''))
+
+//The cockroach is one of the fastest insects. Write a function which takes its speed in km per hour 
+//and returns it in cm per second, rounded down to the integer (= floored).
+const cockroachSpeed = s => Math.floor(s / 0.036)
+console.log(cockroachSpeed(3.5))
+
+//Rock Paper Scissors
+const rps = (p1, p2) => {
+    if(p1 === p2) return `Draw!`
+    if(p1 === 'rock'){
+        if(p2 === 'scissors') return `Player 1 won!`
+        if(p2 === 'paper') return `Player 2 won!`
+    }
+    if(p1 === 'scissors'){
+        if(p2 === 'paper') return `Player 1 won!`
+        if(p2 === 'rock') return `Player 2 won!`
+    }
+    if(p1 === 'paper'){
+        if(p2 === 'rock') return `Player 1 won!`
+        if(p2 === 'scissors') return `Player 2 won!`
+    }
+};
+console.log(rps('rock', 'paper'))
+
+//You will be given an array a and a value x. 
+//All you need to do is check whether the provided array contains the value.
+const check = (a, x) => a.includes(x)
+console.log(check([101, 45, 75, 105, 99, 107], 107))
