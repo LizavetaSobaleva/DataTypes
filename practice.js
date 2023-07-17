@@ -595,3 +595,55 @@ console.log(rps('rock', 'paper'))
 //All you need to do is check whether the provided array contains the value.
 const check = (a, x) => a.includes(x)
 console.log(check([101, 45, 75, 105, 99, 107], 107))
+
+//There is an array with some numbers. All numbers are equal except for one. Try to find it!
+//It’s guaranteed that array contains at least 3 numbers.
+const findUniq = (arr) => {
+    let newArr = arr.toSorted()
+    let first = newArr.shift()
+    let last = newArr.pop()
+    return first != newArr[0] ? first : last
+    // arr.sort((a, b) => a - b)
+    // return arr[0]==arr[1]?arr.pop():arr[0]
+}
+console.log(findUniq([ 1, 1, 2, 1]))
+
+//Complete the function that takes two integers (a, b, where a < b) 
+//and return an array of all integers between the input parameters, including them.
+const between = (a, b) => Array(1-(a-b)).fill(a).map((a, i) => a + i)
+console.log(between(0, 2))
+
+//Your classmates asked you to copy some paperwork for them. 
+//You know that there are 'n' classmates and the paperwork has 'm' pages.
+const paperwork = (n, m) => n > 0 && m > 0 ? n * m : 0
+console.log(paperwork(5,5))
+
+//Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string)
+const sumStr = (a, b) => (+a+(+b)).toString() 
+//String(Number(a)+Number(b))
+console.log(sumStr("4","5"))
+
+//Your goal in this kata is to implement a difference function, which subtracts one list from another 
+//and returns the result.
+//It should remove all values from list a, which are present in list b keeping their order.
+const arrayDiff = (a, b) => {
+    for(let i = 0; i < b.length; i++){
+        a = a.filter(c => c != b[i])
+    }
+    return a
+    // or => return a.filter(e => !b.includes(e));
+}
+console.log(arrayDiff([ 1, 2, 3, 4], [1, 2]))
+
+//Complete the function that accepts a string parameter, and reverses each word in the string. 
+//All spaces in the string should be retained.
+const reverseWords = (str) => str.split(' ').map(word => word.split('').reverse().join('')).join(' ')
+console.log(reverseWords("Hello world"))
+
+//You'll have to capitalize each word
+String.prototype.toJadenCase = function (){ 
+    return str.split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')
+}
+
+let str = "How can mirrors be real if our eyes aren't real"
+console.log(str.toJadenCase())
