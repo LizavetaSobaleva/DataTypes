@@ -642,8 +642,32 @@ console.log(reverseWords("Hello world"))
 
 //You'll have to capitalize each word
 String.prototype.toJadenCase = function (){ 
-    return str.split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')
+    return this.split(' ').map((word) => word[0].toUpperCase() + word.substring(1)).join(' ')
 }
 
 let str = "How can mirrors be real if our eyes aren't real"
 console.log(str.toJadenCase())
+
+//Write a function that will take the number of petals of each flower 
+//and return true if they are in love and false if they aren't.
+const lovefunc = (flower1, flower2) => flower1 % 2 !== flower2 % 2;
+console.log(lovefunc(3,7))
+
+//Write a program that finds the summation of every number from 1 to num. 
+//The number will always be a positive integer greater than 0.
+const summation = (num) => Array(num).fill(num).map((n,i) => n-i).reduce((a, b) => a+b)
+console.log(summation(8))
+
+//Complete the function to return his total number of goals in all three leagues.
+const  goals = (laLigaGoals, copaDelReyGoals, championsLeagueGoals) => laLigaGoals + copaDelReyGoals + championsLeagueGoals
+console.log(goals(43, 10, 5))
+
+//When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+const correct = (string) => string.split('').map((l) => l === '5' ? 'S' : l === '1' ? 'I' : l === '0' ? 'O' : l).join('')
+//correct = s => s.replace(/0/g,'O').replace(/1/g,'I').replace(/5/g,'S')
+console.log(correct("51NGAP0RE"))
+
+//You will be given a list of strings. You must sort it alphabetically 
+//(case-sensitive, and based on the ASCII values of the chars) and then return the first value.
+const twoSort = (s) => s.sort()[0].split('').join('***');
+console.log(twoSort(["bitcoin", "take", "over", "maybe", "who", "knows", "perhaps"]))
