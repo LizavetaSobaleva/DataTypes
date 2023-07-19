@@ -671,3 +671,42 @@ console.log(correct("51NGAP0RE"))
 //(case-sensitive, and based on the ASCII values of the chars) and then return the first value.
 const twoSort = (s) => s.sort()[0].split('').join('***');
 console.log(twoSort(["bitcoin", "take", "over", "maybe", "who", "knows", "perhaps"]))
+
+//Returning Strings
+const greetPerson = (name) => `Hello, ${name} how are you doing today?`
+console.log(greetPerson("Ryan"))
+
+//our task is to return the number of people who are still on the bus after the last bus stop (after the last array).
+var number = function(busStops){
+    let pas = 0
+    for(let i = 0; i < busStops.length; i++){
+        let stop = busStops[i]
+        pas += stop[0] - stop[1]
+    }
+    return pas
+}
+//const number = (busStops) => busStops.reduce((rem, [on, off]) => rem + on - off, 0);
+console.log(number([[10,0],[3,5],[5,8]]))
+
+//Write a function that takes an array of strings as an argument 
+//and returns a sorted array containing the same strings, ordered from shortest to longest.
+const sortByLength = (array) => array.sort((a,b) => a.length - b.length )
+console.log(sortByLength(["Beg", "Life", "I", "To"]))
+
+//I have a cat and a dog. I got them at the same time as kitten/puppy. That was humanYears years ago.
+//Return their respective ages now as [humanYears,catYears,dogYears]
+var humanYearsCatYearsDogYears = function(humanYears) {
+    let firstYear = 15
+    let secondYear = firstYear + 9
+    let catYears = humanYears > 2 ? secondYear + (4*(humanYears-2)) : humanYears > 1 ? secondYear : firstYear
+    let dogYears = humanYears > 2 ? secondYear + (5*(humanYears-2)) : humanYears > 1 ? secondYear : firstYear
+    return [humanYears,catYears,dogYears];
+    // if (y == 1) return [1, 15, 15]
+    // if (y == 2) return [2, 24, 24]
+    // return [y, (y-2) * 4 + 24, (y-2) * 5 + 24]
+}  
+console.log(humanYearsCatYearsDogYears(4))
+
+//Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+const isPangram = (string) => [... new Set(string.toLowerCase().split(''))].join('').toString().match(/[A-Z]/gi).length === 26
+console.log(isPangram("The quick brown fox jumps over the lazy dog."))
