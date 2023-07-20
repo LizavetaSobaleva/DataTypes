@@ -710,3 +710,38 @@ console.log(humanYearsCatYearsDogYears(4))
 //Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 const isPangram = (string) => [... new Set(string.toLowerCase().split(''))].join('').toString().match(/[A-Z]/gi).length === 26
 console.log(isPangram("The quick brown fox jumps over the lazy dog."))
+
+//Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. 
+//No floats or non-positive integers will be passed.
+const sumTwoSmallestNumbers = (numbers) => numbers.sort((a, b) => a - b).filter((_, i) => i < 2).reduce((a,b) => a + b)
+console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))
+
+//Given two integers a and b, which can be positive or negative, find the sum of all the integers between 
+//and including them and return it. If the two numbers are equal return a or b.
+const getSum = (a, b) => a > b ? Array(1-(b-a)).fill(b).map((a, i) => a + i).reduce((a,b) => a + b) : Array(1-(a-b)).fill(a).map((a, i) => a + i).reduce((a,b) => a + b)
+// let min = Math.min(a, b),
+//     max = Math.max(a, b);
+//     return (max - min + 1) * (min + max) / 2;
+console.log(getSum(2, -1))
+
+//Now calculate the average and compare your score!
+const betterThanAverage = (classPoints, yourPoints) => {
+    let all = classPoints.concat(yourPoints)
+    let average = all.reduce((a,b) => a + b) / all.length
+    return yourPoints > average
+}
+console.log(betterThanAverage([2, 3], 5))
+
+//Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order.
+const descendingOrder = (n) => Number(n.toString().split('').sort().reverse().join(''))
+console.log(descendingOrder(1021))
+
+//In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+const makeNegative = (num) => num < 0 ? num : 0 - num 
+//-Math.abs(num);
+console.log(makeNegative(-2))
+
+//Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+const sumMix = (x) => x.reduce((a, b) => Number(a) + Number(b))
+//x.map(a => +a).reduce((a, b) => a + b)
+console.log(sumMix([9, 3, '7', '3']))
