@@ -745,3 +745,39 @@ console.log(makeNegative(-2))
 const sumMix = (x) => x.reduce((a, b) => Number(a) + Number(b))
 //x.map(a => +a).reduce((a, b) => a + b)
 console.log(sumMix([9, 3, '7', '3']))
+
+//Create a function called shortcut to remove the lowercase vowels (a, e, i, o, u ) in a given string.
+const shortcut = (string) => string.replace(/[aeiou]/g, '')
+console.log(shortcut('hello, HELLO'))
+
+//Write a function that removes the spaces from the string, then return the resultant string.
+const noSpace = (x) => x.replace(/\s/g, '')
+console.log(noSpace('Hello fggd    gdg '))
+
+const DNAStrand = (dna) => dna.split('').map(x => x === 'A' ? 'T' : x === 'T' ? 'A' : x === 'C' ? 'G' : x === 'G' ? 'C' : x).join('')
+console.log(DNAStrand("ATTGC"))
+
+//Write a function that always returns 5
+//Sounds easy right? Just bear in mind that you can't use any of the following characters: 0123456789*+-/
+const unusualFive = () => [,,,,,].length
+console.log(unusualFive())
+
+//Create a function that accepts a string and a single character, 
+//and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+const strCount = (str, letter) => str.split('').filter(i => i === letter).length
+console.log(strCount('Hello', 'l'))
+
+//Finish the solution so that it sorts the passed in array of numbers. 
+//If the function passes in an empty array or null/nil value then it should return an empty array.
+const solution2 = (nums) => nums === null ? [] : nums.sort((a, b) => a - b)
+console.log(solution2(null))
+
+//You're writing code to control your town's traffic lights. You need a function to handle each change 
+//from green, to yellow, to red, and then to green again.
+const updateLight = (current) => current === 'green' ? 'yellow' : current === 'red' ? 'green' : 'red'
+/* const updateLight = current => ({
+       green: 'yellow',
+       yellow: 'red',
+      red: 'green',
+    })[current] */
+console.log(updateLight("red"))
