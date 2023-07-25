@@ -776,8 +776,49 @@ console.log(solution2(null))
 //from green, to yellow, to red, and then to green again.
 const updateLight = (current) => current === 'green' ? 'yellow' : current === 'red' ? 'green' : 'red'
 /* const updateLight = current => ({
-       green: 'yellow',
-       yellow: 'red',
-      red: 'green',
+        green: 'yellow',
+        yellow: 'red',
+        red: 'green',
     })[current] */
 console.log(updateLight("red"))
+
+//Bob wants you to write a simple program telling him if he will be able to fit all the passengers.
+const enough = (cap, on, wait) => cap-on > wait ? 0 : -((cap-on)-wait)
+//Math.max(wait + on - cap, 0)
+console.log(enough(20,5,55))
+
+//In this simple exercise, you will build a program that takes a value, integer , and returns a list of its multiples up to another value, limit .
+const findMultiples = (integer, limit) => Array(Math.floor(limit/integer)).fill(integer).map((x,i) => x*(i+1))
+console.log(findMultiples(11, 54))
+
+//This function should test if the factor is a factor of base.
+const checkForFactor = (base, factor) => base % factor === 0
+console.log(checkForFactor(10,2))
+
+//Complete the function/method so that it returns the url with anything after the anchor (#) removed.
+const removeUrlAnchor = (url) => url.split('#')[0]
+console.log(removeUrlAnchor('www.codewars.com#about'))
+
+//Write a function that given a floor in the american system returns the floor in the european system.
+const getRealFloor = (n) => n > 13 ? n - 2 : n > 0 ? n - 1 : n
+console.log(getRealFloor(13))
+
+//Given two numbers and an arithmetic operator (the name of it, as a string), return the result of the two numbers having that operator used on them.
+function arithmetic(a, b, operator){
+    let action = ({
+            add: '+', 
+            subtract: '-',
+            divide: '/',
+            multiply: '*'
+        })
+    return eval(a+action[operator]+b)}
+console.log(arithmetic(1, 2, "add"))
+
+//Write a function that returns both the minimum and maximum number of the given list/array.
+const minMax = (arr) => [Math.min.apply(null, arr), Math.max.apply(null, arr)]
+// [Math.min(...arr), Math.max(...arr)]
+console.log(minMax([5]))
+
+//Write a function that returns a string in which firstname is swapped with last name.
+const nameShuffler = (str) => str.split(' ').reverse().join(' ')
+console.log(nameShuffler('john McClane'))
