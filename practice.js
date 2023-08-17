@@ -822,3 +822,59 @@ console.log(minMax([5]))
 //Write a function that returns a string in which firstname is swapped with last name.
 const nameShuffler = (str) => str.split(' ').reverse().join(' ')
 console.log(nameShuffler('john McClane'))
+
+//In this kata you will create a function that takes in a list and returns a list with the reverse order.
+const reverseList = list => list.reverse()
+console.log(reverseList([1,2,3,4]))
+
+//The function should return true if you are employed and not on vacation 
+//(because these are the circumstances under which you need to set an alarm).
+const setAlarm = (employed, vacation) => employed === true ? vacation === false : false
+//const setAlarm = (employed, vacation) => employed && !vacation;
+console.log(setAlarm(true, false))
+
+//An isogram is a word that has no repeating letters, consecutive or non-consecutive. 
+//Implement a function that determines whether a string that contains only letters is an isogram. 
+//Assume the empty string is an isogram. Ignore letter case.
+const isIsogram = (str) => new Set(str.toLowerCase()).size === str.length
+console.log(isIsogram("isogram"))
+
+//You always walk only a single block for each letter (direction) and you know 
+//it takes you one minute to traverse one city block, so create a function that will return true 
+//if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) 
+//and will, of course, return you to your starting point. Return false otherwise.
+function isValidWalk(walk) {
+    let southNorth = 0
+    let eastWest = 0
+    if(walk.length === 10){
+        for(let i = 0; i < walk.length; i++){
+            if(walk[i] === 's') southNorth += 1
+            if(walk[i] === 'n') southNorth -= 1
+            if(walk[i] === 'e') eastWest += 1
+            if(walk[i] === 'w') eastWest -= 1
+        }
+        return southNorth + eastWest === 0
+    }
+    return false
+}
+console.log(isValidWalk(['n','s']))
+
+//Complete the function that takes a non-negative integer n as input, and returns a list 
+//of all the powers of 2 with the exponent ranging from 0 to n ( inclusive ).
+const powersOfTwo = (n) => Array(n+1).fill(0).map((_,i) => 2**i)
+console.log(powersOfTwo(2))
+
+//You ask a small girl,"How old are you?" She always says, "x years old", where x is a random number between 0 and 9.
+//Write a program that returns the girl's age (0-9) as an integer.
+const getAge = (inputString) => +inputString.split(' ').filter((_,i) => i === 0).join()
+//const getAge = (inputString) => parseInt(inputString)
+console.log(typeof getAge("4 years old"))
+
+//Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
+const quarterOf = (month) => Math.ceil(month/3)
+console.log(quarterOf(12))
+
+//You will be given an array and a limit value. You must check that all values in the array are below 
+//or equal to the limit value. If they are, return true. Else, return false.
+const smallEnough = (a, limit) => a.every((e) => e <= limit)
+console.log(smallEnough([101, 45, 75, 105, 99, 107], 107))
