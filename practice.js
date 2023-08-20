@@ -878,3 +878,19 @@ console.log(quarterOf(12))
 //or equal to the limit value. If they are, return true. Else, return false.
 const smallEnough = (a, limit) => a.every((e) => e <= limit)
 console.log(smallEnough([101, 45, 75, 105, 99, 107], 107))
+
+
+//123#34 - true
+const validatePassword = password => {
+    const truePassword = '1234'
+    let pass = password.split('')
+    if(password === truePassword){
+        return true
+    }
+    while(pass.length > truePassword.length){
+        pass.splice(pass.indexOf('#')-1, 2)
+    }
+    
+    return pass.join('') === truePassword
+}
+console.log(validatePassword('1234#4'))
