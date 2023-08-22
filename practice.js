@@ -884,13 +884,47 @@ console.log(smallEnough([101, 45, 75, 105, 99, 107], 107))
 const validatePassword = password => {
     const truePassword = '1234'
     let pass = password.split('')
-    if(password === truePassword){
-        return true
-    }
     while(pass.length > truePassword.length){
         pass.splice(pass.indexOf('#')-1, 2)
     }
     
     return pass.join('') === truePassword
 }
-console.log(validatePassword('1234#4'))
+console.log(validatePassword('1234'))
+
+//Remove an exclamation mark from the end of a string. For a beginner kata, 
+//you can assume that the input data is always a string, no need to verify it.
+const remove = (string) => {
+    if (string[string.length-1] === '!') {
+        return string.split('').slice(0, -1).join('')
+    }
+    return string
+}
+//string.endsWith('!') ? string.slice(0, -1) : string
+console.log(remove("Hi!!!"))
+
+//Your goal is to return multiplication table for number that is always an integer from 1 to 10.
+const multiTable = (number) => Array(10).fill(number).map((e, i) => `${i+1} * ${e} = ${(i+1) * e}`).join('\n') 
+console.log(multiTable(5))
+
+//you need to create a function that when provided with a triplet, 
+//returns the index of the numerical element that lies between the other two elements.
+const gimme = (triplet) => triplet.indexOf(Number(triplet.filter((e) => e != Math.max(...triplet) && e != Math.min(...triplet))))
+//triplet.indexOf(a.concat().sort(function(a, b) { return a - b })[1])
+console.log(gimme([5, 10, 14]))
+
+//Write a function that checks if a given string (case insensitive) is a palindrome. 
+const isPalindrome = (x) => x.toLowerCase() == x.toLowerCase().split('').reverse().join('')
+console.log(isPalindrome("Madam"))
+/*
+const isPalindrome = (x) => x.toLowerCase().split('').map((e) => e.replace(/[^A-Za-z0-9]/, '')).join('')
+    == x.toLowerCase().split('').map((e) => e.replace(/[^A-Za-z0-9]/, '')).reverse().join('')
+*/
+
+//Replace all vowel to exclamation mark in the sentence. aeiouAEIOU is vowel.
+const replace = (s) => s.replace(/[aeoiu]/ig, '!') 
+console.log(replace("ABCDE"))
+
+//You are given two interior angles (in degrees) of a triangle. Write a function to return the 3rd.
+const otherAngle = (a, b) => 180-(a+b)
+console.log(otherAngle(30, 60))
