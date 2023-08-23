@@ -928,3 +928,23 @@ console.log(replace("ABCDE"))
 //You are given two interior angles (in degrees) of a triangle. Write a function to return the 3rd.
 const otherAngle = (a, b) => 180-(a+b)
 console.log(otherAngle(30, 60))
+
+//Warn the sheep in front of the wolf that it is about to be eaten.
+function warnTheSheep (queue){
+    let eatenSheep = queue.reverse().indexOf('wolf')
+    return eatenSheep < 1 ? `Pls go away and stop eating my sheep` : `Oi! Sheep number ${eatenSheep}! You are about to be eaten by a wolf!`
+}
+console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep", "sheep"]))
+
+//Your task is to find a way to merge them into a single one, sorted in asc order. 
+const mergeArrays = (arr1, arr2) => [...new Set(arr1.concat(arr2).sort((a, b) => a - b))]
+console.log(mergeArrays([1,3,5,7,9], [1, 10,8,6,4,2]))
+
+//In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and 
+//your task is to convert that string to either lowercase only or uppercase
+const solve = (s) => s.replace(/[a-z]/g, '').length > s.replace(/[A-Z]/g, '').length ? s.toUpperCase() : s.toLowerCase()
+console.log(solve("COde"))
+
+//Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. 
+const domainName = (url) => url.split('//').map((a) => a.split('.').filter((w) => w != 'www')[0]).pop()
+console.log(domainName("http://www.google.co/jp"))
