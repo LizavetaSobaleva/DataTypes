@@ -948,3 +948,44 @@ console.log(solve("COde"))
 //Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. 
 const domainName = (url) => url.split('//').map((a) => a.split('.').filter((w) => w != 'www')[0]).pop()
 console.log(domainName("http://www.google.co/jp"))
+
+//Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
+const multipleOfIndex = (array) => array.filter((e, i) => e%i === 0 || e === 0)
+console.log(multipleOfIndex([0, 2, 3, 6, 9]))
+
+const peopleWithAgeDrink = (old) => old < 14 ? 'drink toddy' : old < 18 ? 'drink coke' : old < 21 ? 'drink beer' : 'drink whisky'
+console.log(peopleWithAgeDrink(12))
+
+//Complete the solution so that the function will break up camel casing, using a space between words.
+const camelCasing = (string) => string.split('').map((l) => l === l.toUpperCase() ? ` ${l}` : l).join('')
+//string.replace(/([A-Z])/g, ' $1')
+//string.replace(/([a-z])([A-Z])/g, "$1 $2")
+console.log(camelCasing('camelCasing'))
+
+//As the name may already reveal, it works basically like a Fibonacci, but summing the last 3 (instead of 2) 
+//numbers of the sequence to generate the next. 
+const tribonacci = (signature, n) => {
+    while(signature.length < n) {
+        let sumElement = signature.slice(-3).reduce((a,c) => a+c)
+        signature.push(sumElement)
+    }
+    return signature.slice(0,n)
+}
+console.log(tribonacci([1,1,1], 10))
+
+//In this little assignment you are given a string of space separated numbers, 
+//and have to return the highest and lowest number.
+const highAndLow = (numbers) => numbers.includes(' ') 
+                                    ? numbers.split(' ')
+                                        .sort((a,b) => b - a)
+                                        .filter((_,i) => i === 0 || i === numbers.split(' ').length-1)
+                                        .join(' ')
+                                    : [numbers, numbers].join(' ')
+//  numbers = numbers.split(' ');
+//   return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+console.log(highAndLow("12"))
+
+//Write a function named sumDigits which takes a number as input and returns the sum of the absolute value 
+//of each of the number's decimal digits.
+const sumDigits = (number) => +number.toString().replace(/\W/, '').split('').reduce((a,b)=>(+a)+(+b))
+console.log(sumDigits(123))
