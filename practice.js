@@ -989,3 +989,19 @@ console.log(highAndLow("12"))
 //of each of the number's decimal digits.
 const sumDigits = (number) => +number.toString().replace(/\W/, '').split('').reduce((a,b)=>(+a)+(+b))
 console.log(sumDigits(123))
+
+const include = (arr, item) => arr.includes(item)
+console.log(include([1,2,3,4], 3))
+
+//Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+const binaryArrayToNumber = arr => parseInt(arr.join(''), 2)
+console.log(binaryArrayToNumber([0,0,1,1]))
+
+const toBinary = (n) => +n.toString(2)
+console.log(toBinary(3))
+
+const sayHello = ( name, city, state ) => `Hello, ${name.join(' ')}! Welcome to ${city}, ${state}!`
+console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona'))
+
+const reverseLetter = (str) => str.replace(/[^A-Za-z]/gi, '').split('').reverse().join('')
+console.log(reverseLetter("ultr53o?n"))
