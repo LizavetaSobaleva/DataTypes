@@ -1005,3 +1005,12 @@ console.log(sayHello(['John', 'Smith'], 'Phoenix', 'Arizona'))
 
 const reverseLetter = (str) => str.replace(/[^A-Za-z]/gi, '').split('').reverse().join('')
 console.log(reverseLetter("ultr53o?n"))
+
+//Define a function that removes duplicates from an array of non negative numbers and returns it as a result.
+const distinct = (a) => [...new Set(a)]
+console.log(distinct([1,1,2]))
+
+//All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: 
+//the dish must start and end with the same letters as the animal's name. 
+const feast = (beast, dish) => beast.at(0) === dish.at(0) && beast.at(-1) === dish.at(-1) 
+console.log(feast("chickadee", "chocolate cake"))
