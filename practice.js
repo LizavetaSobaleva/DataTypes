@@ -1014,3 +1014,35 @@ console.log(distinct([1,1,2]))
 //the dish must start and end with the same letters as the animal's name. 
 const feast = (beast, dish) => beast.at(0) === dish.at(0) && beast.at(-1) === dish.at(-1) 
 console.log(feast("chickadee", "chocolate cake"))
+
+
+//Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, 
+//the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+const longest = (s1, s2) => String([...new Set(s1.concat(s2).split('').sort())].join(''))
+//[...new Set(s1+s2)].sort().join('')
+console.log(longest('aabccd', 'bbcdddeee'))
+
+const calculateAge = (born, year) =>  year - born === 0 ? `You were born this very year!` 
+                                        : year - born === 1 ? `You are ${year - born} year old.` 
+                                        : year - born === -1 ? `You will be born in ${-(year - born)} year.` 
+                                        : year - born > 0 ? `You are ${year - born} years old.` 
+                                        : `You will be born in ${-(year - born)} years.`
+console.log(calculateAge(1999, 3010))
+
+const sum = (numbers) => numbers.reduce((a,b) => a+b, 0)
+console.log(sum([1, 5.2, 4, 0, -1]))
+
+const getDrinkByProfession = (param) => {
+    param = param.toLowerCase()
+    const drink = {
+        "jabroni" : "Patron Tequila",
+        "school counselor" : "Anything with Alcohol",
+        "programmer" : "Hipster Craft Beer",
+        "bike gang member" : "Moonshine",
+        "politician" : "Your tax dollars",
+        "rapper" : "Cristal",
+    }
+    return drink[param] !== undefined ? drink[param] : 'Beer'
+}
+
+console.log(getDrinkByProfession("JabronI"))
