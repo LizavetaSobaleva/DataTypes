@@ -1046,3 +1046,56 @@ const getDrinkByProfession = (param) => {
 }
 
 console.log(getDrinkByProfession("JabronI"))
+
+//Implement a function that adds two numbers together and returns their sum in binary. 
+//The conversion can be done before, or after the addition.
+const addBinary = (a, b) => (a+b).toString(2)
+console.log(addBinary(5,9))
+
+//Define a method hello that returns "Hello, Name!" to a given name, 
+//or says Hello, World! if name is not given (or passed as an empty String).
+const hello = (name) => `Hello, ${name ? name[0].toUpperCase() + name.slice(1).toLowerCase() : 'World'}!`
+console.log(hello())
+
+//Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+const countSmileys = (arr) => arr.map((a) => a.replace(/[;:]/, '')
+                                                .replace(/[~-]/, '')
+                                                .replace(/[)D]/, ''))
+                                                .filter((a) => a == '').length
+// arr.filter(x => /^[:;][-~]?[)D]$/.test(x)).length
+// /[:;]{1}[-~]?[)D]{1}/
+console.log(countSmileys([':)',':(',':D',':O',':;']))
+
+//Find the sum of all multiples of n below m
+const sumMul = (n,m) => Array(Math.floor(m/n)).fill(n).map((a,i)=> a * (i+1)).filter((e) => e != m).reduce((a,c) => a+c)
+console.log(sumMul(2,8))
+
+//Write a 'welcome' function that takes a parameter 'language' (always a string), and returns a greeting
+function greet(language) {
+	const greeting = {
+        english: 'Welcome',
+        czech: 'Vitejte',
+        danish: 'Velkomst',
+        dutch: 'Welkom',
+        estonian: 'Tere tulemast',
+        finnish: 'Tervetuloa',
+        flemish: 'Welgekomen',
+        french: 'Bienvenue',
+        german: 'Willkommen',
+        irish: 'Failte',
+        italian: 'Benvenuto',
+        latvian: 'Gaidits',
+        lithuanian: 'Laukiamas',
+        polish: 'Witamy',
+        spanish: 'Bienvenido',
+        swedish: 'Valkommen',
+        welsh: 'Croeso',
+    }
+    return greeting[language] || greeting['english']
+}
+console.log(greet('dutc'))
+
+//Return value as boolean values, true for the string to contains "English", false for it does not.
+const spEng = (sentence) => sentence.toLowerCase().includes('english')
+// /english/i.test(sentence)
+console.log(spEng('abcEnglishdef'))
