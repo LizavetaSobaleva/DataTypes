@@ -1099,3 +1099,38 @@ console.log(greet('dutc'))
 const spEng = (sentence) => sentence.toLowerCase().includes('english')
 // /english/i.test(sentence)
 console.log(spEng('abcEnglishdef'))
+	
+//Create a class Ball. Ball objects should accept one argument for "ball type" when instantiated.
+let Ball = function(ballType = 'regular') {
+    this.ballType = ballType;
+};
+
+let ball1 = new Ball();
+let ball2 = new Ball("super");
+
+console.log(ball1.ballType)     //=> "regular"
+console.log(ball2.ballType)    //=> "super"
+
+//Check anagram
+const isAnagram = (test, original) => test.toLowerCase().split('').sort().join('') === original.toLowerCase().split('').sort().join('')
+console.log(isAnagram('hello', 'lelho'))
+
+//Write a function that takes a single string (word) as argument. The function must return 
+//an ordered list containing the indexes of all capital letters in the string.
+const capitals = (word) => word.split('').map((l, i) => l === l.toUpperCase() ? i : null).filter((e) => e !== null)
+console.log(capitals('CodEWaRs'))
+
+//Find the mean (average) of a list of numbers in an array.
+const findAverage2 = (num) => num.reduce((a, c) => a + c) / num.length
+console.log(findAverage2([1, 3, 5, 7]))
+
+//If it is a square, return its area. If it is a rectangle, return its perimeter.
+const areaOrPerimeter = (l , w) => l === w ? l*w : 2*(l+w)
+console.log(areaOrPerimeter(3,1))
+
+//Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, 
+//your task is to find the sum of the minimum values in each row
+const sumOfMinimums = (arr) => arr.map((a) => Math.min(...a)).reduce((a,c) => a+c)
+console.log(sumOfMinimums( [[7, 9, 8, 6, 2], 
+                            [6, 3, 5, 4, 3], 
+                            [5, 8, 7, 4, 5]]))
