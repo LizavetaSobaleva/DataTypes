@@ -1134,3 +1134,27 @@ const sumOfMinimums = (arr) => arr.map((a) => Math.min(...a)).reduce((a,c) => a+
 console.log(sumOfMinimums( [[7, 9, 8, 6, 2], 
                             [6, 3, 5, 4, 3], 
                             [5, 8, 7, 4, 5]]))
+
+//Numbers ending with zeros are boring. They might be fun in your world, but not here.
+//Get rid of them. Only the ending ones.
+const noBoringZeros = (n) => {
+    let arr = n.toString().split('')
+    while(arr[arr.length-1] == 0) {
+        arr.pop()
+    }
+    return +arr.join('')
+}
+//return +`${n}`.replace(/0*$/, "")
+console.log(noBoringZeros(105000))
+
+//Write a small function that returns the values of an array that are not odd.
+const noOdds = ( values ) => values.filter((num) => !(num % 2))
+console.log(noOdds([0,1,2,3]))
+
+//Given a sequence of numbers, find the largest pair sum in the sequence.
+const largestPairSum = (nums) => nums.sort((a,b) => a-b).slice(-2).reduce((a,c)=>a+c)
+console.log(largestPairSum([10,14,2,23,19]))
+
+//Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element .
+const addLength = (str) => str.split(' ').map((x) => x +' '+ x.length)
+console.log(addLength('apple ban')) 
