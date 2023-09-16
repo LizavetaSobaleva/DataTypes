@@ -1158,3 +1158,37 @@ console.log(largestPairSum([10,14,2,23,19]))
 //Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element .
 const addLength = (str) => str.split(' ').map((x) => x +' '+ x.length)
 console.log(addLength('apple ban')) 
+
+//Complete the function which returns the weekday according to the input number
+const whatday = (num) => {
+    const weekDays = {
+        1 : "Sunday",
+        2 : "Monday",
+        3 : "Tuesday",
+        4 : "Wednesday",
+        5 : "Thursday",
+        6 : "Friday",
+        7 : "Saturday",
+    }
+    return weekDays[num] ?? "Wrong, please enter a number between 1 and 7"
+}
+console.log(whatday(7))
+
+//Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
+const checkCoupon = (enteredCode, correctCode, currentDate, expirationDate) => {
+    const curDate = new Date(currentDate)
+    const expDate = new Date(expirationDate)
+    return enteredCode === correctCode && curDate <= expDate
+}
+console.log(checkCoupon("123", "123", "July 2, 2015", "July 8, 2015"))
+
+//You are going to be given a word. Your job is to return the middle character of the word. 
+//If the word's length is odd, return the middle character.
+const getMiddle = (s) => s.length % 2 === 0 
+                            ? s.split('').slice((s.length/2)-1, (s.length/2)+1).join('')
+                            : s.split('').slice((s.length/2), (s.length/2)+1).join('')
+console.log(getMiddle("test"))
+
+//Write a function which returns a new string containing the same character sequences except the first and the last ones but this time separated by spaces.
+const array = (string) => string.split(',').slice(1,-1).join(' ') || null
+console.log(array('1,2'))
