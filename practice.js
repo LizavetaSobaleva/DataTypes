@@ -1192,3 +1192,22 @@ console.log(getMiddle("test"))
 //Write a function which returns a new string containing the same character sequences except the first and the last ones but this time separated by spaces.
 const array = (string) => string.split(',').slice(1,-1).join(' ') || null
 console.log(array('1,2'))
+
+//Implement the function unique_in_order which takes as argument a sequence and returns a list of items 
+//without any elements with the same value next to each other and preserving the original order of elements.
+const uniqueInOrder = (iterable) => 
+console.log(uniqueInOrder('ABBCcAAADDD'))
+
+//Given a string of words, you need to find the highest scoring word.
+//Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+//You need to return the highest scoring word as a string.
+const high = (x) => {
+    let arr = x.split(' ').map((x) => x.split('').map(letter => letter.charCodeAt(0) - 96).reduce((a,c) => a+c))
+    let highestWord = arr.indexOf(Math.max(...arr))
+    return x.split(' ')[highestWord]
+}
+console.log(high('aa b'))
+
+//filter
+const getEvenNumbers = (numbersArray) => numbersArray.filter((num) => !(num%2))
+console.log(getEvenNumbers([1,2,3,6,8,10]))
