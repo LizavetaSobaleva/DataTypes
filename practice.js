@@ -1211,3 +1211,49 @@ console.log(high('aa b'))
 //filter
 const getEvenNumbers = (numbersArray) => numbersArray.filter((num) => !(num%2))
 console.log(getEvenNumbers([1,2,3,6,8,10]))
+
+//Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+function roundToNext5(n){
+    while (n % 5 !== 0) {
+        n += 1
+    }
+    return n
+}
+console.log(roundToNext5(-5))
+
+//Your task, is to create N×N multiplication table, of size provided in parameter.
+const multiplicationTable = (size) => Array(size).fill(1).map((r,i)=> Array(size).fill(r+i).map((c,i)=> c*(i+1)))
+console.log(multiplicationTable(3))
+
+//Your task is to write a function which returns the sum of a sequence of integers.
+//The sequence is defined by 3 non-negative values: begin, end, step.
+const sequenceSum = (begin, end, step) => Array(Math.ceil(end/step)).fill(begin).map((n,i) => n+(step*i)).reduce((a,c)=>a+c)
+console.log(sequenceSum(1,5,3))
+
+//Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+//a = 1, b = 2, c = 3 ... z = 26
+const wordsToMarks = s => s.toLowerCase().split('').map((e) => e.charCodeAt() - 96).reduce((a,c) => a + c)
+console.log(wordsToMarks("amore"))
+
+//Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, 
+//where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+const rowWeights = (array) => {
+    if (array.length > 1){
+        let team1 = array.filter((_, i) => !(i % 2)).reduce((a,c) => a + c)
+        let team2 = array.filter((_, i) => i % 2).reduce((a,c) => a + c)
+        return [team1, team2]
+    } else return [...array, 0]
+}
+console.log(rowWeights([50]))
+
+const rowWeights2 = (array) => {
+    let team1 = array.filter((_, i) => !(i % 2)).reduce((a,c) => a + c, 0)
+    let team2 = array.filter((_, i) => i % 2).reduce((a,c) => a + c, 0)
+
+    return [team1, team2]
+}
+console.log(rowWeights2([50]))
+
+//In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+const alphabetPosition = (text) => text.toLowerCase().replace(/[^a-z]/gi, '').split('').map((e) => e.charCodeAt() - 96).join(' ')
+console.log(alphabetPosition("The sunset sets at twelve o'clock."))
