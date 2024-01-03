@@ -1257,3 +1257,10 @@ console.log(rowWeights2([50]))
 //In this kata you are required to, given a string, replace every letter with its position in the alphabet.
 const alphabetPosition = (text) => text.toLowerCase().replace(/[^a-z]/gi, '').split('').map((e) => e.charCodeAt() - 96).join(' ')
 console.log(alphabetPosition("The sunset sets at twelve o'clock."))
+
+//We want to know the index of the vowels in a given word
+const vowelIndices = (word) => [...word].map((l, i) => l.match(/[aeiouy]/gi) ? i+1 : false).filter(e => e)
+console.log(vowelIndices("apple"))
+
+const pipeFix = (n) => Array(n.at(-1) - n[0] +1).fill(n[0]).map((e, i) => e+i)
+console.log(pipeFix([3, 10]))
