@@ -1195,7 +1195,7 @@ console.log(array('1,2'))
 
 //Implement the function unique_in_order which takes as argument a sequence and returns a list of items 
 //without any elements with the same value next to each other and preserving the original order of elements.
-const uniqueInOrder = (iterable) => 
+const uniqueInOrder = (iterable) => [...iterable].filter((l, i) => l !== iterable[i+1])
 console.log(uniqueInOrder('ABBCcAAADDD'))
 
 //Given a string of words, you need to find the highest scoring word.
@@ -1262,5 +1262,124 @@ console.log(alphabetPosition("The sunset sets at twelve o'clock."))
 const vowelIndices = (word) => [...word].map((l, i) => l.match(/[aeiouy]/gi) ? i+1 : false).filter(e => e)
 console.log(vowelIndices("apple"))
 
+//Given a list of unique numbers sorted in ascending order, return a new list 
+//so that the values increment by 1 for each index from the minimum value up to the maximum value (both included).
 const pipeFix = (n) => Array(n.at(-1) - n[0] +1).fill(n[0]).map((e, i) => e+i)
 console.log(pipeFix([3, 10]))
+
+//The first input array is the key to the correct answers to an exam, like ["a", "a", "b", "d"].
+//The second one contains a student's submitted answers.
+const checkExam = (array1, array2) => {
+    let result = array2.map((e, i) => e === array1[i] ? 4 : e === '' ? 0 : -1).reduce((a,c) => a + c) 
+    return result > 0 ? result : 0
+}
+console.log(checkExam(["a", "a", "c", "b"], ["c", "c", "b",  "c"]))
+
+//Write a function that will return the count of distinct case-insensitive alphabetic characters 
+//and numeric digits that occur more than once in the input string.
+const duplicateCount = (text) => {
+    let letterCount = {}
+    for (let i = 0; i < text.length; i++){
+        let letter = text.toLowerCase()[i]
+        if (letterCount[letter]) {
+            letterCount[letter]++
+        } else {
+            letterCount[letter] = 1
+        }
+    }
+    return Object.values(letterCount).filter(e => e > 1).length
+}
+//return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+console.log(duplicateCount("Indivisibilities"))
+
+//Write a function which takes a number and returns the corresponding ASCII char for that value.
+const getChar = c => String.fromCharCode(c)
+console.log(getChar(55))
+
+//Given a string, capitalize the letters that occupy even indexes and odd indexes separately, 
+//and return as shown below. Index 0 will be considered even.
+const capitalize = s => [[...s].map((l, i) => !(i%2) ? l.toUpperCase() : l).join(''), 
+                         [...s].map((l, i) => i%2 ? l.toUpperCase() : l).join('')]
+console.log(capitalize("abracadabra"))
+
+//Your task is to write function factorial.
+const factorial = n => Array(n).fill(1).map((e,i) => e+i).reduce((a,c) => a * c, 1)
+console.log(factorial(7))
+
+//You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+const defineSuit = card => {
+    let cardSuit = {
+        '♣': 'clubs',
+        '♦': 'diamonds',
+        '♥': 'hearts',
+        '♠': 'spades',
+    }
+    return cardSuit[card.charAt(card.length-1)]
+}
+console.log(defineSuit('3♣'))
+
+// In this simple exercise, you will create a program that will take two lists of integers, a and b. 
+// Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. 
+// You must find the difference of the cuboids' volumes regardless of which is bigger.
+const findDifference = (a, b) => Math.abs(a.reduce((a, c) => a * c) - b.reduce((a, c) => a * c))
+console.log(findDifference([11,5,8], [21,2,22]))
+
+//Given a list of integers, determine whether the sum of its elements is odd or even.
+const oddOrEven = array => array.reduce((a, c) => a + c, 0) % 2 ? 'odd' : 'even'
+console.log(oddOrEven([0, 1, 4]))
+
+//Complete the method which accepts an array of integers, and returns: "yes, ascending", "yes, descending" or "no"
+const isSortedAndHow = (array) => array.join('') === [...array].sort((a,b) => a - b).join('') ? "yes, ascending" 
+                                    : array.join('') === [...array].sort((a,b) => b - a).join('') ? "yes, descending" 
+                                    : "no"
+console.log(isSortedAndHow([3, 2, 1]))
+
+//Given an array of integers, find the one that appears an odd number of times.
+//There will always be only one integer that appears an odd number of times.
+const findOdd = a => {
+    let numberCount = {}
+    for (let i = 0; i < a.length; i++){
+        let number = a[i]
+        if (numberCount[number]) {
+            numberCount[number]++
+        } else {
+            numberCount[number] = 1
+        }
+    }
+    return +(Object.entries(numberCount).filter(([key, value]) => value % 2).flat()[0])
+}
+//const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+console.log(findOdd([1,2,2,3,3,3,4,3,3,3,2,2,1]))
+
+//The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, 
+//or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+const duplicateEncode = word => {
+    let charCount = {}
+    for (let i = 0; i < word.length; i++){
+        let char = word.toLowerCase()[i]
+        if (charCount[char]) {
+            charCount[char]++
+        } else {
+            charCount[char] = 1
+        }
+    }
+    return [...word.toLowerCase()].map((c, i) => charCount[word.toLowerCase()[i]] > 1 ? ')' : "(").join('')
+}
+//return word.toLowerCase().split('').map((char, i, arr) => arr.indexOf(char) == arr.lastIndexOf(char) ? '(' : ')').join('')
+console.log(duplicateEncode("Success"))
+
+//Given an array of integers your solution should find the smallest integer.
+const findSmallestInt = (args) => args.sort((a,b) => a - b)[0]
+console.log(findSmallestInt([43, 15, -88, 2]))
+
+//Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, 
+//which is the number of times you must multiply the digits in num until you reach a single digit.
+const persistence = num => {
+    let result = 0
+    while (String(num).length > 1){
+        num = String(num).split('').reduce((a, c) => a*c)
+        result++
+    }
+    return result
+}
+console.log(persistence(999))
