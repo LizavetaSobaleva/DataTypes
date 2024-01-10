@@ -1383,3 +1383,42 @@ const persistence = num => {
     return result
 }
 console.log(persistence(999))
+
+//Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+const order = w => {
+    let words = w.split(' ')
+    let index = words.map(e => +(e.replace(/[^1-9]/g, '')))
+    let singleWords = {}
+    for(let i = 0; i < words.length; i++){
+        singleWords[index[i]] = words[i]
+    }
+    return Object.values(singleWords).join(' ')
+}
+//  return words.split(' ').sort(function(a, b){ return a.match(/\d/) - b.match(/\d/); }).join(' ');
+console.log(order("is2 Thi1s T4est 3a"))
+
+//Could you make a program that: makes this string uppercase, gives it sorted in alphabetical order by last name.
+const meeting = s => `(${s.toUpperCase()
+                            .split(';')
+                            .map((n, i) => n.split(':').reverse().join(', '))
+                            .sort() 
+                            .join(')(')})`
+console.log(meeting('Fred:Corwill;Barney:Tornbull;Wilfred:Corwill;Alfred:Corwill'))
+
+//The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+function count(string) {
+    let charCount = {}
+    for (let i = 0; i < string.length; i++){
+        let char = string[i]
+        if (charCount[char]) {
+            charCount[char]++
+        } else {
+            charCount[char] = 1
+        }
+    }
+  return charCount
+}
+
+//Your task is simply to count the total number of lowercase letters in a string.
+const lowercaseCount = str => (str.match(/[a-z]/g) || []).length
+console.log(lowercaseCount('123abcDE'))
