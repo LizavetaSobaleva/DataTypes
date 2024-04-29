@@ -1422,3 +1422,51 @@ function count(string) {
 //Your task is simply to count the total number of lowercase letters in a string.
 const lowercaseCount = str => (str.match(/[a-z]/g) || []).length
 console.log(lowercaseCount('123abcDE'))
+
+//Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+const createPhoneNumber = numbers => {
+    let n = numbers.join('')
+    return `(${n.slice(0,3)}) ${n.slice(3,6)}-${n.slice(6)}`
+}
+function createPhoneNumber2(numbers){
+   return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
+   //return numbers.join('').replace(/(...)(...)(.*)/, '($1) $2-$3');
+}
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+console.log(createPhoneNumber2([1, 1, 1, 2, 2, 2, 3, 3, 3, 3]))
+
+//Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. 
+//You can guarantee that input is non-negative.
+const countBits = n => n.toString(2).split('1').length - 1
+console.log(countBits(1234))
+
+//Create a function that takes a string and returns the string ciphered with Rot13.
+const rot13 = message => message.split('').map(c => c.match(/[a-mA-M]/g) 
+                                                        ? String.fromCharCode(c.charCodeAt() + 13) 
+                                                        : c.match(/[n-zN-Z]/g) 
+                                                            ? String.fromCharCode(c.charCodeAt() - 13) 
+                                                            : c)
+                                                        .join("")
+console.log(rot13('test123!'))
+
+//Your function should multiply the two numbers, and then subtract 1 from the exponent. Then, it has to return an expression (like 28x^7). 
+//"^1" should not be truncated when exponent = 2.
+const derive = (c,e) => String(c*e + 'x^' + (e-1))
+console.log(derive(7,8))
+
+//Calculate the distance between the first and the last pillar in centimeters (without the width of the first and last pillar).
+const pillars = (numPill, dist, width) => numPill > 1 ? width*(numPill-2) + (dist*(numPill-1)*100) : 0
+console.log(pillars(4, 10, 10))
+
+//Complete the function that calculates the area of the red square, when the length of the circular arc A is given as the input. 
+const squareArea = (A) => +(((A*2) / Math.PI)**2).toFixed(2)
+//const squareArea = A => +Math.pow((2 * A / 3.1416), 2).toFixed(2)
+console.log(squareArea(14.05))
+
+//Complete the function which converts a binary number (given as a string) to a decimal number.
+const binToDec = (bin) => parseInt(bin, 2)
+console.log(binToDec(1001001))
+
+//A non-empty array a of length n is called an array of all possibilities if it contains all numbers between 0 and a.length - 1 (both inclusive).
+const isAllPossibilities = (x) => Array(x.length).fill(0).map((n,i) => i)
+console.log(isAllPossibilities([1,2,0,3]))
