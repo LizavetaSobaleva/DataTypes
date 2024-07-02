@@ -57,11 +57,11 @@ upperString("hello MY friends!");
 function findAverage(array) {
     let sum = 0;
     if(array.length > 0){
-    for(let i = 0; i < array.length; i++){
-        sum += array[i];
-    };
-    let average = sum/array.length;
-    return average;
+        for(let i = 0; i < array.length; i++){
+            sum += array[i];
+        };
+        let average = sum/array.length;
+        return average;
     } else return 0;
 };
 console.log(findAverage([1,2,3]));
@@ -1470,3 +1470,56 @@ console.log(binToDec(1001001))
 //A non-empty array a of length n is called an array of all possibilities if it contains all numbers between 0 and a.length - 1 (both inclusive).
 const isAllPossibilities = (x) => Array(x.length).fill(0).map((n,i) => i)
 console.log(isAllPossibilities([1,2,0,3]))
+
+function mouthSize(animal) {
+    if (animal.toLowerCase() === 'alligator') {
+        return 'small'
+    } else {
+        return 'wide'
+    }
+}
+
+console.log(mouthSize("alligator"))
+
+function pickIt(arr){
+    const odd=[], even=[];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i]%2 !== 0) {
+        odd.push(arr[i])
+      } else {
+        even.push(arr[i])
+      }
+    }
+    return [odd,even];
+}
+console.log(pickIt([1,2,3,4]))
+
+//Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates).
+function minValue(values){
+    let unic = new Set(values)
+    return +[...unic].sort().join('')
+}
+
+console.log(minValue([4, 8, 1, 4]))
+
+//Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old).
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+    let birthAge = dadYearsOld - sonYearsOld
+    if (birthAge === sonYearsOld) {
+        return 0
+    }
+    if (birthAge > sonYearsOld) {
+        return dadYearsOld - (sonYearsOld*2)
+    } else {
+        return (sonYearsOld*2) - dadYearsOld
+    }
+}
+
+console.log(twiceAsOld(36,7))
+
+
+function countBits2(n) {
+    return new Array(n+1).fill(0).map((_,i) => i.toString(2).split('').map(c => +c).reduce((a,b) => a + b, 0))
+}
+
+console.log(countBits2(5))
